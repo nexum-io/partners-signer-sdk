@@ -1,6 +1,16 @@
 # Changelog
 
-All notable changes to `@nexum-io/partner-signer-sdk`. Versions are git tags (`vX.Y.Z`); consume by tag.
+All notable changes to `@nexum-io/partners-signer-sdk`. Versions are git tags (`vX.Y.Z`); consume by tag.
+
+## 0.3.0
+
+Breaking identity rename only — signing contract v1 unchanged.
+
+- npm package: `@nexum-io/partner-signer-sdk` → `@nexum-io/partners-signer-sdk`
+- GitHub repo: `nexum-io/common-partner-signer-sdk` → `nexum-io/partners-signer-sdk`
+- Workspace path: `common/common-partner-signer-sdk` → `partners/partners-signer-sdk`
+- Install: `npm install github:nexum-io/partners-signer-sdk#v0.3.0`
+- No API changes to `createSigner` / MCP `signer_*` tools
 
 ## 0.2.0
 

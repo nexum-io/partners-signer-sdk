@@ -1,4 +1,4 @@
-# @nexum-io/partner-signer-sdk
+# @nexum-io/partners-signer-sdk
 
 Thin Node.js SDK for a **partner backend** that needs to sign EIP-712 typed data and EIP-191 messages with **its own wallet** — one operational EOA held by the partner. Nexum never sees, stores, or custodies the key: this package only signs what your service asks it to sign.
 
@@ -28,30 +28,30 @@ Your service prepares the payload (typed data or message); the signer only produ
 Node ≥ 20, ESM only (`import`, no `require`).
 
 ```bash
-npm install github:nexum-io/common-partner-signer-sdk#v0.2.0
+npm install github:nexum-io/partners-signer-sdk#v0.3.0
 ```
 
-Pin a tag (`#vX.Y.Z`), never a branch, in production. Tags are listed at https://github.com/nexum-io/common-partner-signer-sdk/tags; changes per version are in [CHANGELOG.md](CHANGELOG.md). npm builds `dist/` on install (the `prepare` script), so no registry publication is needed.
+Pin a tag (`#vX.Y.Z`), never a branch, in production. Tags are listed at https://github.com/nexum-io/partners-signer-sdk/tags; changes per version are in [CHANGELOG.md](CHANGELOG.md). npm builds `dist/` on install (the `prepare` script), so no registry publication is needed.
 
-## Migration from `@nexum-io/partner-signer`
+## Migration from `@nexum-io/partner-signer-sdk`
 
 ```bash
-npm uninstall @nexum-io/partner-signer
-npm install github:nexum-io/common-partner-signer-sdk#v0.2.0
+npm uninstall @nexum-io/partner-signer-sdk
+npm install github:nexum-io/partners-signer-sdk#v0.3.0
 ```
 
 ```ts
-import { createSigner } from '@nexum-io/partner-signer-sdk';
+import { createSigner } from '@nexum-io/partners-signer-sdk';
 ```
 
-No other API changes — `createSigner` and the three methods are unchanged.
+No other API changes — `createSigner` and the three methods are unchanged. Update the GitHub install URL from `common-partner-signer-sdk` to `partners-signer-sdk`.
 
 ## Quick start
 
 Your application owns the key: read it from your secret store or environment (any variable name you like) and pass it to `createSigner`.
 
 ```ts
-import { createSigner } from '@nexum-io/partner-signer-sdk';
+import { createSigner } from '@nexum-io/partners-signer-sdk';
 
 // Your app reads its own env — the SDK does not.
 const privateKey = process.env.PARTNER_SIGNER_PRIVATE_KEY as `0x${string}`;
