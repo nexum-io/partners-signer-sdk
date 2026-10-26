@@ -1,10 +1,10 @@
-# AGENTS.md — common-partner-signer-sdk
+# AGENTS.md — partners-signer-sdk
 
-`@nexum-io/partner-signer-sdk` — thin Node.js SDK for a **partner backend** to sign EIP-712 typed data and messages with **its own** wallet.
+`@nexum-io/partners-signer-sdk` — thin Node.js SDK for a **partner backend** to sign EIP-712 typed data and messages with **its own** wallet.
 
 ## Ownership
 
-Engineering (workspace-wide shared package). Not owned by SSO, not by Escrow, not by HandyMan — HandyMan is a consumer, not the owner. Linear project: [JS SDK Signer](https://linear.app/nexum-io/project/js-sdk-signer-88cf22f651e0).
+Partners product (`partners/partners-signer-sdk`). HandyMan is a consumer, not the owner. Linear project: [JS SDK Signer](https://linear.app/nexum-io/project/js-sdk-signer-88cf22f651e0).
 
 ## Purpose
 
@@ -54,15 +54,15 @@ npm run build        # emit dist/
 
 ## Release
 
-Consumers install by git tag: `npm i github:nexum-io/common-partner-signer-sdk#vX.Y.Z` (npm runs `prepare` → `dist/`). To cut a version, on the merged `develop` commit:
+Consumers install by git tag: `npm i github:nexum-io/partners-signer-sdk#vX.Y.Z` (npm runs `prepare` → `dist/`). To cut a version, on the merged `develop` commit:
 
 ```bash
 # 1. version in package.json AND mcp/package.json (the MCP reports its own version) + CHANGELOG.md entry land through a normal PR;
 #    re-run `npm run setup` so the example/mcp lockfiles pick up the new link version
 # 2. tag the merge commit and push the tag
-git tag -a v0.2.0 -m "v0.2.0" <develop-merge-commit>
-git push origin v0.2.0
-# 3. smoke: npm i github:nexum-io/common-partner-signer-sdk#v0.2.0 in an empty Node project
+git tag -a v0.3.0 -m "v0.3.0" <develop-merge-commit>
+git push origin v0.3.0
+# 3. smoke: npm i github:nexum-io/partners-signer-sdk#v0.3.0 in an empty Node project
 ```
 
 Never move a published tag; publish a new version instead.
@@ -80,7 +80,7 @@ Never move a published tag; publish a new version instead.
 
 ## Cross-cutting
 
-**Product** — workspace routing and hard gates: [`../../AGENTS.md`](../../AGENTS.md).
-**Workflow** — SDD home, Linear epic/issue, Inspect→Report: [`agent-workflow.md`](../../bootstrap/content/policy/agent-workflow.md). No product docs hub — ask where to file SDD before writing it.
+**Product** — workspace routing and hard gates: [`../../AGENTS.md`](../../AGENTS.md); Partners: [`../AGENTS.md`](../AGENTS.md).
+**Workflow** — SDD home, Linear epic/issue, Inspect→Report: [`agent-workflow.md`](../../bootstrap/content/policy/agent-workflow.md). Docs hub: `partners-docs` (`docs/superpowers/` when that tree exists).
 **Standards** — MR size, reuse/`common/`, committees: [`CODING_STANDARDS.md`](../../CODING_STANDARDS.md).
 **Linear** — branch/MR naming when the task has an issue ID: [`linear-branch-mr-convention.md`](../../bootstrap/content/policy/linear-branch-mr-convention.md).
