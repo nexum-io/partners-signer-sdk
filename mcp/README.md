@@ -8,7 +8,7 @@ MCP server for agents (Cursor, Claude Code, …) that exposes `@nexum-io/partner
 | `signer_sign_typed_data` | `{ domain?, types, primaryType, message }` (EIP-712 as JSON; integer fields and `domain.chainId` may be decimal strings, `0x` hex strings or **safe** numbers ≤ 2^53−1 — larger integers must be strings, unsafe numbers are rejected; `chainId` is optional but, when present, must be a valid uint256) | `{ address, signature }` |
 | `signer_sign_message` | exactly one of `{ message }` (UTF-8) or `{ raw }` (`0x` hex bytes) | `{ address, signature }` |
 
-Errors come back as tool errors (`isError: true`) with a text hint. Key material never appears in results or logs: the key stays inside the signer's closure, stdout is the protocol channel, nothing is printed to stderr.
+Errors come back as tool errors (`isError: true`) with a text hint. A missing or invalid key does not stop startup: it surfaces as a tool error on the first call. Key material never appears in results or logs: the key stays inside the signer's closure, stdout is the protocol channel, and the server prints nothing to stderr (only the launcher does, with a hint when `mcp/dist` is not built).
 
 ## Where the key comes from
 
